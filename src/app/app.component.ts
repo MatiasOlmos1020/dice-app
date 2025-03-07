@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { DiceDisplayComponent } from './Components/dice-display/dice-display.component';
+import { DiceSelectComponent } from './Components/dice-select/dice-select.component';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
+  selector: 'app-root>',
+  imports: [DiceDisplayComponent,DiceSelectComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dice-app';
+  menuHidden = true;
+
+  toggleMenu() {
+    this.menuHidden = !this.menuHidden;
+  }
 }
