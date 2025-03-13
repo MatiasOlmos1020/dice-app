@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { DiceDisplayComponent } from './Components/dice-display/dice-display.component';
-import { DiceSelectComponent } from './Components/dice-select/dice-select.component';
 import { RouterOutlet } from '@angular/router';
+import { MenuComponent } from './Components/menu/menu.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, MenuComponent],
   standalone: true,
-  template: `<router-outlet></router-outlet>`,
+  templateUrl: `./app.component.html`,
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {}
 

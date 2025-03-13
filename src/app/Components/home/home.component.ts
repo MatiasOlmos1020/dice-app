@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { DiceDisplayComponent } from '../dice-display/dice-display.component';
 import { DiceSelectComponent } from '../dice-select/dice-select.component';
-import { MenuComponent } from '../menu/menu.component';
 
 @Component({
-  selector: 'home',
-  imports: [DiceDisplayComponent,DiceSelectComponent,MenuComponent,],
+  //selector: 'home',
+  imports: [DiceDisplayComponent,DiceSelectComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

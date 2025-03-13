@@ -5,9 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalService {
 
-  private _randomNumber: number = Math.floor(Math.random() * 100) + 1;
-
+  // cantidad de caras del dado
   private _diceType: number = 20
+
+  //valor actual del dado
+  private _randomNumber: number = Math.floor(Math.random() * this._diceType) + 1;
 
   // Método para obtener el número
   get randomNumber(): number {
