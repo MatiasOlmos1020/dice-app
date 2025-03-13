@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { DiceDisplayComponent } from './Components/dice-display/dice-display.component';
 import { DiceSelectComponent } from './Components/dice-select/dice-select.component';
-import { HomeComponent } from './Components/home/home.component';
+import { HomeView } from './views/home/home.view';
+import { CreateDiceView } from './views/create-dice/create-dice.view';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'dice-select', component: DiceSelectComponent },
+  { path: '', component: HomeView },
+  { path: 'create-dice', component: CreateDiceView },
   //{ path: '**', redirectTo: '' } // Redirige a Home si la ruta no existe
 ];

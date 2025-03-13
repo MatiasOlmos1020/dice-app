@@ -1,0 +1,119 @@
+.create-dice {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.dice-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    color: #6b4f34;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.add-face-btn,
+.generate-btn {
+    background: #9c8261;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.add-face-btn:hover,
+.generate-btn:hover {
+    background: #7a664b;
+}
+
+.faces-list {
+    margin-top: 10px;
+    max-height: 250px;
+    /* 🔥 Altura máxima para evitar desbordes */
+    overflow-y: auto;
+    /* 🔥 Activa el scroll vertical */
+    padding-right: 5px;
+}
+
+/* Personaliza el scrollbar para que se vea bien en mobile */
+.faces-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.faces-list::-webkit-scrollbar-thumb {
+    background: #c2a87a;
+    border-radius: 5px;
+}
+
+.faces-list::-webkit-scrollbar-track {
+    background: #f1e3d3;
+}
+
+.face-item {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.face-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9c8261;
+    padding: 10px;
+}
+
+input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.remove-button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.remove-button:hover {
+    background: #e63946;
+}
