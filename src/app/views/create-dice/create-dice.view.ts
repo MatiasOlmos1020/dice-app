@@ -1,14 +1,20 @@
+// src/app/views/create-dice.view.ts
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DiceService } from '../../services/dice.service';
 
 @Component({
-  imports: [CommonModule,FormsModule],
+  standalone: true,
+  selector: 'app-create-dice',
+  imports: [CommonModule, FormsModule],
   templateUrl: './create-dice.view.html',
   styleUrls: ['./create-dice.view.css']
 })
 export class CreateDiceView {
   faces: { faceNumber: number; image: string }[] = [];
+
+  constructor(private diceService: DiceService) {}
 
   addFace() {
     this.faces.push({
@@ -28,11 +34,21 @@ export class CreateDiceView {
     });
   }
 
-  generateJson() {
+  uploadDice() {
     const dice = {
       faceQty: this.faces.length,
       faces: this.faces
     };
-    console.log(JSON.stringify(dice, null, 2)); // Muestra el JSON en consola
+
+    this.diceService.createDice(dice).subscribe({
+      next: (response) => {
+        console.log('Dado creado:', response);
+        alert('✅ Dado creado con éxito');
+      },
+      error: (error) => {
+        console.error('Error al crear dado:', error);
+        alert('❌ Error al crear el dado');
+      }
+    });
   }
 }
