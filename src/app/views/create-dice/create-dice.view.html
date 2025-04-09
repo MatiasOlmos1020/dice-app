@@ -1,7 +1,9 @@
 <div class="dice-form">
   <h2>🎲 Crear Dado</h2>
-  <label for="diceName">Nombre del Dado:</label>
-  <input type="text" id="diceName" [(ngModel)]="diceName" placeholder="Ej: Dado de fuego" />
+  <div class="name-field">
+    <label for="diceName">Nombre del Dado:</label>
+    <input type="text" id="diceName" [(ngModel)]="diceName" placeholder="Ej: Dado de fuego" />
+  </div>
   <button class="add-face-btn" (click)="addFace()">➕ Añadir Cara</button>
 
   <div class="faces-list">
