@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>🎲 Lista de Dados</h2>
+  
+    <div *ngIf="isLoading">Cargando...</div>
+  
+    <div *ngIf="!isLoading && dices.length === 0">
+      No hay dados creados todavía.
+    </div>
+  
+    <div *ngIf="!isLoading && dices.length > 0" class="dice-list">
+      <div *ngFor="let dice of dices" class="dice-card">
+        <h3>{{ dice.name }}</h3>
+        <p>Caras: {{ dice.faceQty }}</p>
+        <div class="face-preview">
+          <img
+            *ngFor="let face of dice.faces.slice(0, 3)"
+            [src]="imagesUrl + face.image"
+            alt="Face preview"
+          />
+          <span *ngIf="dice.faces.length > 3">+{{ dice.faces.length - 3 }} más</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,16 +1,18 @@
 <div class="dice-form">
-    <h2>🎲 Crear Dado</h2>
-  
-    <button class="add-face-btn" (click)="addFace()">➕ Añadir Cara</button>
-  
-    <div class="faces-list">
-      <div *ngFor="let face of faces; let i = index" class="face-item">
-        <span class="face-number">#{{ face.faceNumber }}</span>
-        <input type="text" [(ngModel)]="face.image" placeholder="URL de imagen">
-        <button (click)="removeFace(i)" class="remove-button">🗑️</button>
-      </div>
+  <h2>🎲 Crear Dado</h2>
+  <label for="diceName">Nombre del Dado:</label>
+  <input type="text" id="diceName" [(ngModel)]="diceName" placeholder="Ej: Dado de fuego" />
+  <button class="add-face-btn" (click)="addFace()">➕ Añadir Cara</button>
+
+  <div class="faces-list">
+    <div *ngFor="let face of faces; let i = index" class="face-item">
+      <span class="face-number">#{{ face.faceNumber }}</span>
+
+      <input type="file" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event, i)" />
+
+      <button (click)="removeFace(i)" class="remove-button">🗑️</button>
     </div>
-  
-    <button class="generate-btn" (click)="uploadDice()">✅ Crear Dado</button> 
   </div>
-  
+
+  <button class="generate-btn" (click)="uploadDice()">✅ Crear Dado</button>
+</div>
