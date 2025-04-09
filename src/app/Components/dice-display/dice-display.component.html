@@ -1,5 +1,12 @@
 <div (click)="generateRandomNumber()" class="number-container">
-    <span class="big-number">
-        {{ number }}
-    </span>
-</div>
+    <ng-container *ngIf="curentFace?.image && curentFace?.image !== ''; else showNumber">
+      <img [src]="imagesUrl + curentFace?.image" alt="Cara del dado" class="dice-image"/>
+    </ng-container>
+  
+    <ng-template #showNumber>
+      <span class="big-number">
+        {{ curentFace?.faceNumber }}
+      </span>
+    </ng-template>
+  </div>
+  

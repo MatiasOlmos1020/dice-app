@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../global.service';
+import { Face } from '../../models/dice.model';
+import { CommonModule,NgIf } from '@angular/common';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'dice-display',
+  imports: [CommonModule,NgIf],
   templateUrl: './dice-display.component.html',
   styleUrl: './dice-display.component.css'
 })
 export class DiceDisplayComponent {
+  imagesUrl = environment.imagesUrl;
   constructor(private globalService: GlobalService){}
 
-  get number(): number {
-    return this.globalService.randomNumber
+  get curentFace(): Face | null {
+    return this.globalService.currentFace
   }
 
   generateRandomNumber(): void {
-    this.globalService.generateRandomNumber();
+    this.globalService.generateRandomFace();
   }
 }

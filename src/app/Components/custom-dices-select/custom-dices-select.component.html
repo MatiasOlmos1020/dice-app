@@ -1,0 +1,5 @@
+<div class="dice-selector">
+    <div *ngFor="let dice of dices" class="dice-option" (click)="setDiceType(dice)" [class.selected]="dice === selectedDice">
+      <span>{{ dice.name }}</span>
+    </div>
+  </div>
