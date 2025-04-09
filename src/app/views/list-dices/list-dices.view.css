@@ -1,33 +1,47 @@
 .container {
-    padding: 20px;
-  }
-  
-  .dice-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
-  }
-  
-  .dice-card {
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 16px;
-    background-color: #f9f9f9;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .face-preview {
-    display: flex;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  
-  .face-preview img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 1px solid #999;
-  }
-  
+  padding: 20px;
+}
+
+.dice-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.dice-card {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.face-preview {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.face-preview img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #999;
+}
+
+.remove-button {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.remove-button:hover {
+  background: #e63946;
+}

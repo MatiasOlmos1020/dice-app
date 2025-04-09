@@ -34,4 +34,16 @@ export class ListDicesView implements OnInit {
             }
         });
     }
+
+    deleteDice(diceId: any): void {
+        this.diceService.deleteDice(diceId).subscribe({
+            next: () => {
+              console.log("Dado eliminado con éxito");
+              this.loadDices();
+            },
+            error: (err) => {
+              console.error("Error al eliminar el dado", err);
+            }
+          });
+    }
 }

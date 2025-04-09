@@ -24,4 +24,7 @@ export class DiceService {
     return this.http.post(`${this.apiUrl}/dice`, dice);
   }
 
+  deleteDice(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/dice/${id}`);
+  }
 }
