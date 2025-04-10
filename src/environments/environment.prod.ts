@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://tubackend.com/api',
-    imagesUrl: 'https://tubackend.com', 
+    apiUrl: 'dice-app-back-production.up.railway.app/api',
+    imagesUrl: 'dice-app-back-production.up.railway.app', 
   };
   
