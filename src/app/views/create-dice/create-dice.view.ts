@@ -61,6 +61,11 @@ export class CreateDiceView {
       return;
     }
 
+    if(this.faces.length === 0){
+      alert('❌ El dado debe tener al menos una cara');
+      return;
+    }
+
     const uploadPromises = this.faces.map(async (face, i) => {
       if (!face.file) {
         return {

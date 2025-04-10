@@ -2,9 +2,9 @@
 
 <nav id="sidebar" [class.open]="!isHidden">
     <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/create-dice">Create Dice</a></li>
-        <li><a routerLink="/list-dices">View Dices</a></li>
-        <li><a routerLink="/">Profile</a></li>
+        <li><a routerLink="/">Tirar Dados</a></li>
+        <li><a routerLink="/create-dice">Crear Dado</a></li>
+        <li><a routerLink="/list-dices">Mis Dados</a></li>
+        <li><a (click)="logout()">Cerrar Sesión</a></li>
     </ul>
 </nav>

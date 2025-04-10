@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { GlobalService } from "../../global.service";
-import { NgFor } from "@angular/common";
+import { NgFor, NgIf } from "@angular/common";
 import { DiceService } from "../../services/dice.service";
 import { Dice } from "../../models/dice.model";
 import { environment } from "../../../environments/environment";
@@ -8,7 +8,7 @@ import { environment } from "../../../environments/environment";
 @Component({
   selector: "custom-dices-select",
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,NgIf],
   templateUrl: "./custom-dices-select.component.html",
   styleUrl: "./custom-dices-select.component.css"
 })

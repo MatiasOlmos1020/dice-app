@@ -19,7 +19,8 @@ export class DiceSelectComponent {
         this.createNumericDice("d8", 8),
         this.createNumericDice("d10", 10),
         this.createNumericDice("d12", 12),
-        this.createNumericDice("d20", 20)
+        this.createNumericDice("d20", 20),
+        this.createNumericDice("d100", 100), 
     ];
 
     // Crea un dado numérico básico
