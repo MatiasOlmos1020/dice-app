@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DiceService } from '../../services/dice.service';
 import { ImageService } from '../../services/image.service';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -17,7 +18,8 @@ export class CreateDiceView {
 
   constructor(
     private diceService: DiceService,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private router: Router,
   ) { }
 
   addFace() {
@@ -91,6 +93,7 @@ export class CreateDiceView {
         next: (response) => {
           console.log('Dado creado:', response);
           alert('✅ Dado creado con éxito');
+          this.router.navigate(['/']);
         },
         error: (error) => {
           console.error('Error al crear dado:', error);
