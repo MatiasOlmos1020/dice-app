@@ -13,7 +13,6 @@ import { environment } from '../../../environments/environment';
 })
 export class ListDicesView implements OnInit {
     dices: Dice[] = [];
-    imagesUrl = environment.imagesUrl;
     isLoading = true;
 
     constructor(private diceService: DiceService) { }

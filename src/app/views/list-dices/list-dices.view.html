@@ -16,7 +16,7 @@
         <ng-container *ngFor="let face of dice.faces.slice(0, 3)">
           <img
             *ngIf="face.image"
-            [src]="imagesUrl + face.image"
+            [src]="face.image"
             alt="Face preview"
           />
         </ng-container>

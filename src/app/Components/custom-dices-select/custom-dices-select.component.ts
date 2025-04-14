@@ -14,7 +14,6 @@ import { environment } from "../../../environments/environment";
 })
 export class CustomDicesSelectComponent implements OnInit {
   dices: Dice[] = [];
-  imagesUrl = environment.imagesUrl;
 
   constructor(
     private globalservice: GlobalService,

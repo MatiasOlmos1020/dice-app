@@ -1,6 +1,6 @@
 <div (click)="generateRandomNumber()" class="number-container">
     <ng-container *ngIf="curentFace?.image && curentFace?.image !== ''; else showNumber">
-      <img [src]="imagesUrl + curentFace?.image" alt="Cara del dado" class="dice-image"/>
+      <img [src]="curentFace?.image" alt="Cara del dado" class="dice-image"/>
     </ng-container>
   
     <ng-template #showNumber>

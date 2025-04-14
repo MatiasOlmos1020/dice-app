@@ -66,22 +66,24 @@ export class CreateDiceView {
       return;
     }
 
-    const uploadPromises = this.faces.map(async (face, i) => {
+    const uploadPromises = this.faces.map(async (face) => {
       if (!face.file) {
         return {
           faceNumber: face.faceNumber,
           image: ""
         };
       }
-
+    
       try {
-        const imageUrl = await this.imageService.uploadImage(face.file);
-        return {
-          faceNumber: face.faceNumber,
-          image: imageUrl
-        };
+        const result = await this.imageService.uploadImage(
+          face.file,
+          this.diceName,
+          face.faceNumber
+        );
+    
+        return result;
       } catch (err) {
-        throw new Error(`Error al subir imagen de la cara #${i + 1}`);
+        throw new Error(`Error al subir imagen de la cara #${face.faceNumber}`);
       }
     });
 

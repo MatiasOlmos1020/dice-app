@@ -11,7 +11,6 @@ import { environment } from '../../../environments/environment';
   styleUrl: './dice-display.component.css'
 })
 export class DiceDisplayComponent {
-  imagesUrl = environment.imagesUrl;
   constructor(private globalService: GlobalService){}
 
   get curentFace(): Face | null {

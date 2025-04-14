@@ -11,18 +11,24 @@ export class ImageService {
 
     constructor(private http: HttpClient) { }
 
-    async uploadImage(file: File): Promise<string> {
+    async uploadImage(file: File, diceName: string, faceNumber: number): Promise<{ faceNumber: number; image: string }> {
         const formData = new FormData();
         formData.append('image', file);
-
+        formData.append('diceName', diceName);
+        formData.append('faceNumber', faceNumber.toString());
+    
         const response = await lastValueFrom(
-            this.http.post<{ url?: string }>(`${this.apiUrl}/images`, formData)
+            this.http.post<{ imageUrl: string, faceNumber: number }>(`${this.apiUrl}/images`, formData)
         );
-        
-        if (!response.url) {
+    
+        if (!response.imageUrl) {
             throw new Error('No se recibió la URL de la imagen desde el servidor');
         }
-        console.log(response);
-        return response.url;
+    
+        return {
+            faceNumber: response.faceNumber,
+            image: response.imageUrl
+        };
     }
+    
 }
