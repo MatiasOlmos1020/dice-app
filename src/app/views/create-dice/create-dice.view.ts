@@ -15,12 +15,13 @@ import { Router } from '@angular/router';
 export class CreateDiceView {
   diceName: string = '';
   faces: { faceNumber: number; file: File | null; image?: string }[] = [];
+  loading: boolean = false; 
 
   constructor(
     private diceService: DiceService,
     private imageService: ImageService,
     private router: Router,
-  ) { }
+  ) {}
 
   addFace() {
     this.faces.push({
@@ -56,15 +57,17 @@ export class CreateDiceView {
   }
 
   async uploadDice() {
-    if (!this.diceName.trim()){
+    if (!this.diceName.trim()) {
       alert('❌ El dado debe tener un nombre.');
       return;
     }
 
-    if(this.faces.length === 0){
+    if (this.faces.length === 0) {
       alert('❌ El dado debe tener al menos una cara');
       return;
     }
+
+    this.loading = true;
 
     const uploadPromises = this.faces.map(async (face) => {
       if (!face.file) {
@@ -73,14 +76,14 @@ export class CreateDiceView {
           image: ""
         };
       }
-    
+
       try {
         const result = await this.imageService.uploadImage(
           face.file,
           this.diceName,
           face.faceNumber
         );
-    
+
         return result;
       } catch (err) {
         throw new Error(`Error al subir imagen de la cara #${face.faceNumber}`);
@@ -100,16 +103,18 @@ export class CreateDiceView {
         next: (response) => {
           console.log('Dado creado:', response);
           alert('✅ Dado creado con éxito');
-          this.router.navigate(['/']);
+          this.router.navigate(['/list-dices']); // ← NUEVA RUTA
         },
         error: (error) => {
           console.error('Error al crear dado:', error);
           alert('❌ Error al crear el dado');
+          this.loading = false;
         }
       });
     } catch (error) {
       console.error('❌ Error al subir imágenes o crear el dado:', error);
       alert('❌ Error al subir imágenes o crear el dado');
+      this.loading = false;
     }
   }
 }

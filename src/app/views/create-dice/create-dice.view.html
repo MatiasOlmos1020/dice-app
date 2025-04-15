@@ -1,4 +1,11 @@
-<div class="dice-form">
+<!-- Muestra el loader si está cargando -->
+<div *ngIf="loading" class="loader-container">
+  <div class="loader"></div>
+  <p>Creando dado, por favor espera...</p>
+</div>
+
+<!-- Formulario visible solo si NO está cargando -->
+<div class="dice-form" *ngIf="!loading">
   <h2>🎲 Crear Dado</h2>
   <div class="name-field">
     <label for="diceName">Nombre del Dado:</label>
@@ -9,9 +16,7 @@
   <div class="faces-list">
     <div *ngFor="let face of faces; let i = index" class="face-item">
       <span class="face-number">#{{ face.faceNumber }}</span>
-
       <input type="file" accept=".jpg,.jpeg,.png" (change)="onFileSelected($event, i)" />
-
       <button (click)="removeFace(i)" class="remove-button">🗑️</button>
     </div>
   </div>

@@ -1,10 +1,12 @@
-<button (click)="toggleMenu()" id="menu-toggle">☰</button>
+<!-- Botón del menú con referencia local -->
+<button (click)="toggleMenu()" id="menu-toggle" #menuButton>☰</button>
 
+<!-- Menú lateral -->
 <nav id="sidebar" [class.open]="!isHidden">
-    <ul>
-        <li><a routerLink="/">Tirar Dados</a></li>
-        <li><a routerLink="/create-dice">Crear Dado</a></li>
-        <li><a routerLink="/list-dices">Mis Dados</a></li>
-        <li><a (click)="logout()">Cerrar Sesión</a></li>
-    </ul>
+  <ul>
+    <li><a routerLink="/" (click)="toggleMenu()">Tirar Dados</a></li>
+    <li><a routerLink="/create-dice" (click)="toggleMenu()">Crear Dado</a></li>
+    <li><a routerLink="/list-dices" (click)="toggleMenu()">Mis Dados</a></li>
+    <li><a (click)="logout(); toggleMenu()">Cerrar Sesión</a></li>
+  </ul>
 </nav>
